@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    app:startDestination="@id/onBoardingFragment">
+
+    <fragment
+        android:id="@+id/onBoardingFragment"
+        android:name="com.pelle.videoreducer.ui.onboarding.OnBoardingFragment"
+        android:label="OnBoardingFragment"
+        tools:layout="@layout/fragment_onboarding">
+
+        <action
+            android:id="@+id/goToSelectVideoFragment"
+            app:destination="@id/selectVideoFragment"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_left" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/selectVideoFragment"
+        android:name="com.pelle.videoreducer.ui.selectvideo.SelectVideoFragment"
+        android:label="SelectVideoFragment"
+        tools:layout="@layout/fragment_select_video">
+
+        <action
+            android:id="@+id/goToCompressVideoFragment"
+            app:destination="@id/compressVideoFragment"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_left" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/compressVideoFragment"
+        android:name="com.pelle.videoreducer.ui.compressvideo.CompressVideoFragment"
+        android:label="CompressVideoFragment"
+        tools:layout="@layout/fragment_compress_video">
+
+        <argument
+            android:name="video"
+            app:argType="com.pelle.videoreducer.data.VideoModel" />
+
+        <action
+            android:id="@+id/goToCompressionSuccessFragment"
+            app:destination="@id/compressionSuccessFragment"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_left" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/compressionSuccessFragment"
+        android:name="com.pelle.videoreducer.ui.success.CompressionSuccessFragment"
+        android:label="CompressionSuccessFragment"
+        tools:layout="@layout/fragment_compression_success">
+
+        <argument
+            android:name="video"
+            app:argType="com.pelle.videoreducer.data.VideoModel" />
+
+        <argument
+            android:name="reducedMb"
+            app:argType="string" />
+
+        <argument
+            android:name="thumbnail"
+            app:argType="android.graphics.Bitmap"
+            app:nullable="true" />
+
+        <action
+            android:id="@+id/goToSelectVideoFragment"
+            app:destination="@id/selectVideoFragment"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_left" />
+
+    </fragment>
+
+</navigation>
